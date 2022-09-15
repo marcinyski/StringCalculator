@@ -56,4 +56,12 @@ class StringCalculatorTest {
         }
     }
 
+    @Test
+    void step6IgnoreNumbersGreaterThan1000() {
+        assertEquals(6, calculator.add("1\n2\n3\n1003"));
+        assertEquals(10, calculator.add("2\n3,1\n4,1001"));
+        assertEquals(3, calculator.add("//;\n1;2;1001"));
+
+    }
+
 }

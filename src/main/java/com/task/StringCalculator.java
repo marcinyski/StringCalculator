@@ -7,6 +7,8 @@ import java.util.Optional;
 public class StringCalculator {
     public static final String COMMA_OR_NEWLINE_DELIMITER = "\\R|,";
     public static final String NEW_LINE_DELIMITER = "\\R";
+    public static final int ONE_THOUSAND = 1000;
+    public static final int ZERO = 0;
 
     public int add(String numbers) {
         String numbersSafe = Optional.ofNullable(numbers).orElse("");
@@ -24,9 +26,9 @@ public class StringCalculator {
         List<String> negatives = new ArrayList<>();
         for (String strNumber : strNumbers) {
             int number = Integer.parseInt(strNumber);
-            if (number < 0) {
+            if (number < ZERO) {
                 negatives.add(strNumber);
-            } else {
+            } else if (number <= ONE_THOUSAND) {
                 sum += number;
             }
         }
