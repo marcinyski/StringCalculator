@@ -40,7 +40,11 @@ class StringCalculatorTest {
     void step3SupportForNewLinesBetweenNumbers() {
         assertEquals(6, calculator.add("1\n2\n3"));
         assertEquals(10, calculator.add("2\n3,1\n4,0"));
+    }
 
+    @Test
+    void step4SupportForDifferentDelimiters() {
+        assertEquals(6, calculator.add("//;\n1;2;3"));
     }
 
 }
