@@ -11,9 +11,11 @@ public class StringCalculator {
             return 0;
         }
         String[] strNumbers = numbersSafe.split(DEFAULT_DELIMITER);
-        return strNumbers.length == 1
-                ? Integer.valueOf(strNumbers[0])
-                : Integer.valueOf(strNumbers[0]) + Integer.valueOf(strNumbers[1]);
+        int sum = 0;
+        for (String strNumber : strNumbers) {
+            sum += Integer.parseInt(strNumber);
+        }
+        return sum;
     }
 
 }

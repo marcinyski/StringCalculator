@@ -29,4 +29,11 @@ class StringCalculatorTest {
         assertEquals(5, calculator.add("2,3"));
     }
 
+    @Test
+    void step2UnknownAmountOfNumbers() {
+        assertEquals(6, calculator.add("2,3,1"));
+        assertEquals(10, calculator.add("2,3,1,4,0"));
+        assertEquals(33, calculator.add("2,3,1,2,3,4,5,6,7"));
+    }
+
 }
