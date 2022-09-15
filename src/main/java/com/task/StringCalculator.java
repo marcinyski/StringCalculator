@@ -1,5 +1,7 @@
 package com.task;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class StringCalculator {
@@ -17,9 +19,19 @@ public class StringCalculator {
             numbersSafe = numbersSafe.split(NEW_LINE_DELIMITER)[1];
         }
         String[] strNumbers = numbersSafe.split(delimiter);
+
         int sum = 0;
+        List<String> negatives = new ArrayList<>();
         for (String strNumber : strNumbers) {
-            sum += Integer.parseInt(strNumber);
+            int number = Integer.parseInt(strNumber);
+            if (number < 0) {
+                negatives.add(strNumber);
+            } else {
+                sum += number;
+            }
+        }
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException("negatives not allowed: " + String.join(",", negatives));
         }
         return sum;
     }
